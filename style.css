@@ -1,0 +1,28 @@
+/* Reset básico para garantir padronização */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo do body */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f7f7f7; /* fundo suave */
+    height: 100vh;
+}
+
+/* Estilo do header */
+header {
+    background-color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo do nome "Avilcor" */
+header h1 {
+    color: #003366; /* azul escuro */
+    font-size: 3rem;
+    letter-spacing: 2px;
+}
