@@ -1,28 +1,56 @@
-/* Reset básico para garantir padronização */
-* {
+body {
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+}
+
+header {
+    background-color: #003366;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    justify-content: center; /* centraliza horizontalmente os blocos */
+}
+
+.bloco_cliente, .bloco_pedidos {
+    border: 2px solid #003366;
+    color: #003366;
+    border-radius: 15px;
+    padding: 15px;
+    width: 300px;
+    min-height: 200px;
     box-sizing: border-box;
 }
 
-/* Estilo do body */
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f7f7f7; /* fundo suave */
-    height: 100vh;
-}
-
-/* Estilo do header */
-header {
-    background-color: #fff;
-    padding: 20px 0;
+.title {
     text-align: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
 }
 
-/* Estilo do nome "Avilcor" */
-header h1 {
-    color: #003366; /* azul escuro */
-    font-size: 3rem;
-    letter-spacing: 2px;
+.bloco_cliente div > div,
+.bloco_pedidos div > div {
+    margin-bottom: 15px;
 }
+
+button {
+    background-color: #003366;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0055a5;
+}
+
+
+
+
