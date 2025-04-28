@@ -1,25 +1,14 @@
-import { Client } from "./client.js"
+import  { allClients } from "./routes/get/getAllClients.js";
 
-fetch('http://localhost:8080/clients')
-.then(response => response.json)
-.then(data => {
-    const clients = data.map(c => new Client(c.name, c.email, c.orders));
-    renderClientes(clients);
-})
-.catch(error => {
-    console.log('Erro ao buscar clientes:', error);
-});
-
-
-function renderClientes(clientes) {
+async function renderClientes() {
     const tbody = document.querySelector('#clientes-table tbody');
     tbody.innerHTML = ''; // limpa o conteúdo antes
 
-    clientes.forEach(cliente => {
+    allClients.forEach(cliente => {
       const tr = document.createElement('tr');
 
       const tdNome = document.createElement('td');
-      tdNome.textContent = cliente.nome;
+      tdNome.textContent = cliente.name;
 
       const tdEmail = document.createElement('td');
       tdEmail.textContent = cliente.email;
@@ -30,4 +19,6 @@ function renderClientes(clientes) {
       tbody.appendChild(tr);
     });
 }
+
+renderClientes();
 
