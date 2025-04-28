@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cadastrar Cliente - Avilcor</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <header>
+        <h1>Avilcor - Cadastrar Cliente</h1>
+    </header>
+
+    <main>
+        <table id="save-client-table" border="1" cellpadding="10" cellspacing="0" style="width: 50%; margin: 20px auto; border-collapse: collapse;">
+            <thead style="background-color: #003366; color: white;">
+                <tr>
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="text" id="nome" placeholder="Digite o nome" /></td>
+                    <td><input type="text" id="email" placeholder="Digite o email" /></td>
+                    <td><button id="btnSalvar">Salvar</button></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3 id="mensagem" style="text-align: center; color: green;"></h3>
+    </main>
+
+    <script type="module" src="../saveClient.js" defer></script>
+</body>
+</html>
