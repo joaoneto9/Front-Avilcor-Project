@@ -18,7 +18,7 @@ header {
     justify-content: center; /* centraliza horizontalmente os blocos */
 }
 
-.bloco_cliente, .bloco_pedidos {
+.bloco_cliente, .bloco_pedidos, .bloco_costureiras {
     border: 2px solid #003366;
     color: #003366;
     border-radius: 15px;
