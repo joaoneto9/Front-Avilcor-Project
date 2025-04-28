@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cadastrar Cliente - Avilcor</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <header>
+        <h1>Avilcor - Pedidos Cliente</h1>
+    </header>
+
+    <main>
+        <table id="query-client-table" border="1" cellpadding="10" cellspacing="0" style="width: 50%; margin: 20px auto; border-collapse: collapse;">
+            <thead style="background-color: #003366; color: white;">
+                <tr>
+                    <th>id</th>
+                    <th>Data do Pedido</th>
+                    <th>Previsao de Entrega</th>
+                    <th>Atividades do Pedido</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr id="Orders-Parameters-values"></tr>
+            </tbody>
+        </table>
+        <div class="bloco">
+            <h3>Insira o email do Cliente para Buscar seus Pedidos:</h3>
+            <input type="text" id="email" placeholder="email do cliente">
+            <button id="query">Buscar</button>
+        </div>
+    </main>
+
+    <script type="module" src="../queryOrdersClient.js" defer></script>
+</body>
+</html>
