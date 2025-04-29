@@ -2,6 +2,9 @@ import { getClientByEmail } from "../../routes/get/getClientByEmail.js";
 import { getAutoCompleteEmail } from "../../routes/get/getAutoCompleteEmail.js";
 
 const email = document.getElementById("email");
+
+email.value = localStorage.getItem("ultimoEmail");
+
 const suggestionBox = document.getElementById('suggestions');
 const localMessage = document.getElementById("response-data-message");
 
@@ -36,6 +39,8 @@ window.renderOrdersClientByEmail = async function() {
 
     const tbody = document.getElementById("orders-parameters-values");
     const emailValue = email.value;
+
+    localStorage.setItem("ultimoEmail", emailValue); // set do ulitmo email utilizado
 
     // Limpa a tabela antes de adicionar novos dados
     tbody.innerHTML = "";
