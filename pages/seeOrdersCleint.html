@@ -15,24 +15,28 @@
         <table id="query-client-table" border="1" cellpadding="10" cellspacing="0" style="width: 50%; margin: 20px auto; border-collapse: collapse;">
             <thead style="background-color: #003366; color: white;">
                 <tr>
-                    <th>id</th>
+                    <th>Id do Pedido</th>
                     <th>Data do Pedido</th>
-                    <th>Previsao de Entrega</th>
-                    <th>Atividades do Pedido</th>
-                    <th></th>
+                    <th>Previsão</th>
+                    <th>Atividades</th>
+                    <th>Valor Total</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr id="Orders-Parameters-values"></tr>
+            <tbody id="orders-parameters-values">
+                <!-- Linhas dos pedidos vão aqui -->
             </tbody>
         </table>
+
         <div class="bloco">
-            <h3>Insira o email do Cliente para Buscar seus Pedidos:</h3>
-            <input type="text" id="email" placeholder="email do cliente">
-            <button id="query">Buscar</button>
+            <h3>Insira o email do Cliente para Buscar seus Dados e seus Pedidos:</h3>
+            <input type="text" id="email" placeholder="email do cliente" />
+            <button id="query" onclick="renderOrdersClientByEmail()">Buscar</button>
+            <h3 id="response-data-message"></h3>
         </div>
     </main>
 
-    <script type="module" src="../queryOrdersClient.js" defer></script>
+    <script type="module" src="../functions/client/queryOrdersClient.js" defer></script>
 </body>
 </html>
+
+

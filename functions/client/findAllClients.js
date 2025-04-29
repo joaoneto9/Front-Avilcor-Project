@@ -1,4 +1,4 @@
-import  { allClients } from "./routes/get/getAllClients.js";
+import  { allClients } from "../../routes/get/getAllClients.js";
 
 async function renderClientes() {
     const tbody = document.querySelector('#clientes-table tbody');

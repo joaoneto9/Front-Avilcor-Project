@@ -1,4 +1,4 @@
-import { Client } from "../../client.js";
+import { Client } from "../../classes/client.js";
 
 async function getAllClients() {
     const client = {
