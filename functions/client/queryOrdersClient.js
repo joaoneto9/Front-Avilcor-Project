@@ -1,16 +1,48 @@
 import { getClientByEmail } from "../../routes/get/getClientByEmail.js";
+import { getAutoCompleteEmail } from "../../routes/get/getAutoCompleteEmail.js";
+
+const email = document.getElementById("email");
+const suggestionBox = document.getElementById('suggestions');
+const localMessage = document.getElementById("response-data-message");
+
+email.addEventListener('input', async (e) => {
+    localMessage.innerHTML = '';
+    suggestionBox.innerHTML = '';
+
+    const emailPrefix = e.target.value;
+    const suggestions = await getAutoCompleteEmail(emailPrefix);
+
+    if (!emailPrefix || suggestions.length === 0) {
+        return;
+    }
+
+    suggestions.forEach(email => {
+        const div = document.createElement("div");
+
+        div.classList.add("suggestion-item");
+        div.textContent = email;
+
+        div.addEventListener("click", () => {
+            e.target.value = email;
+            suggestionBox.innerHTML = '';
+        });
+
+        suggestionBox.appendChild(div);
+    });
+});
 
 window.renderOrdersClientByEmail = async function() {
-    const tbody = document.getElementById("orders-parameters-values"); // corrigido id
-    const email = document.getElementById("email").value;
-    const localMessage = document.getElementById("response-data-message");
+    suggestionBox.innerHTML = ''
+
+    const tbody = document.getElementById("orders-parameters-values");
+    const emailValue = email.value;
 
     // Limpa a tabela antes de adicionar novos dados
     tbody.innerHTML = "";
     localMessage.innerHTML = "";
 
     try {
-        const response = await getClientByEmail(email);
+        const response = await getClientByEmail(emailValue);
 
         if (!response.orders) {
             localMessage.innerHTML = "Usuario com esse Email nao existe";
@@ -18,7 +50,7 @@ window.renderOrdersClientByEmail = async function() {
         }
 
         if (response.orders.length === 0) {
-            localMessage.innerHTML = "Nenhum pedido encontrado para o cliente com email: " + email;
+            localMessage.innerHTML = "Nenhum pedido encontrado para o cliente com email: " + emailValue;
             return;
         }
 
@@ -37,11 +69,11 @@ window.renderOrdersClientByEmail = async function() {
             const tdActivities = document.createElement('td');
             const btnShowActivities = document.createElement('button');
             btnShowActivities.textContent = "Ver Atividades";
-            btnShowActivities.onclick = () => toggleActivities(order.id, order.activities);
+            btnShowActivities.onclick = () => toggleActivities(order.id);
             tdActivities.appendChild(btnShowActivities);
 
             const tdValorTotal = document.createElement('td');
-            tdValorTotal.textContent = order.valorTotal;
+            tdValorTotal.textContent = "R$ " + order.valorTotal;
 
             trOrder.appendChild(tdId);
             trOrder.appendChild(tdDateBegin);
@@ -110,7 +142,7 @@ window.renderOrdersClientByEmail = async function() {
 }
 
 // Função para expandir ou esconder a tabela de atividades
-function toggleActivities(orderId, activities) {
+function toggleActivities(orderId) {
     const tr = document.getElementById(`activities-order-${orderId}`);
     if (tr.style.display === "none") {
         tr.style.display = "table-row";
