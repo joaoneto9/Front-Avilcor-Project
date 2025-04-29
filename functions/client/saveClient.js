@@ -1,4 +1,4 @@
-import { postSaveClient } from "./routes/post/postClient.js";
+import { postSaveClient } from "../../routes/post/postClient.js";
 
 document.addEventListener("DOMContentLoaded", function() {
     const btnSalvar = document.getElementById('btnSalvar');

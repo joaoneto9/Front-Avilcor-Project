@@ -4,4 +4,8 @@ export class Client {
         this.email = email;
         this.orders = orders;
     }
+
+    toString() {
+        return "<br>Nome: " + this.name + "<br>Email: " + this.email; 
+    }
 }
