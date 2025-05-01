@@ -1,5 +1,5 @@
 // Função para expandir ou esconder a tabela de atividades
-function toggleActivities(orderId) {
+export function toggleActivities(orderId) {
     const tr = document.getElementById(`activities-order-${orderId}`);
     if (tr.style.display === "none") {
         tr.style.display = "table-row";
@@ -53,6 +53,7 @@ export function showTablesOrdersActivities(order, tbody) {
     const thead = document.createElement('thead');
     thead.innerHTML = `
                 <tr>
+                    <th>Id</th>
                     <th>Trabalho</th>
                     <th>Roupa</th>
                     <th>Preco</th>
@@ -63,6 +64,9 @@ export function showTablesOrdersActivities(order, tbody) {
     order.activities.forEach(activity => {
         const trAct = document.createElement('tr');
 
+        const tdIdActivity = document.createElement('td');
+        tdIdActivity.textContent = activity.id;
+
         const tdTrabalho = document.createElement('td');
         tdTrabalho.textContent = activity.trabalho;
 
@@ -72,6 +76,7 @@ export function showTablesOrdersActivities(order, tbody) {
         const tdPreco = document.createElement('td');
         tdPreco.textContent = "R$ " + activity.preco;
 
+        trAct.appendChild(tdIdActivity);
         trAct.appendChild(tdTrabalho);
         trAct.appendChild(tdRoupa);
         trAct.appendChild(tdPreco);

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cadastrar Cliente - Avilcor</title>
+    <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+    <header>
+        <h1>Avilcor - Pedidos Cliente</h1>
+    </header>
+
+    <main>
+        <table id="dressmaker-table" border="1" cellpadding="10" cellspacing="0" style="width: 50%; margin: 20px auto; border-collapse: collapse;">
+            <thead style="background-color: #003366; color: white;">
+                <tr>
+                    <th>Id</th>
+                    <th>Nome</th>
+                    <th>Quantidade Maxima</th>
+                    <th>Atividades</th>
+                    <th>Salario</th>
+                </tr>
+            </thead>
+            <tbody id="dressmaker-order-activity-values">
+                <!-- Linhas dos pedidos vão aqui -->
+            </tbody>
+        </table>
+
+        <div class="bloco">
+            <h3>Insira o CPF da Costureira</h3>
+            <input type="text" id="cpf" placeholder="cpf (ex: 08550787400)"/>
+            <button id="query">Buscar</button>
+            <h3 id="response-data-message"></h3>
+        </div>
+    </main>
+
+    <script type="module" src="../../functions/dressmaker/showDressmaker.js" defer></script>
+</body>
+</html>
