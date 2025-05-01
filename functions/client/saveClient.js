@@ -9,6 +9,8 @@ document.addEventListener("DOMContentLoaded", function() {
         const nome = document.getElementById('nome').value;
         const email = document.getElementById('email').value;
 
+        localStorage.setItem("ultimoEmail", email);
+
         // Chama a função que faz a requisição POST
         const response = postSaveClient(nome, email);
 

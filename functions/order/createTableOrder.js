@@ -20,6 +20,9 @@ export function showTablesOrdersActivities(order, tbody) {
     const tdDateFinish = document.createElement('td');
     tdDateFinish.textContent = order.dateFinish;
 
+    const tdStatus = document.createElement('td');
+    tdStatus.textContent = order.statusOrder;
+
     const tdActivities = document.createElement('td');
     const btnShowActivities = document.createElement('button');
     btnShowActivities.textContent = "Ver Atividades";
@@ -32,6 +35,7 @@ export function showTablesOrdersActivities(order, tbody) {
     trOrder.appendChild(tdId);
     trOrder.appendChild(tdDateBegin);
     trOrder.appendChild(tdDateFinish);
+    trOrder.appendChild(tdStatus);
     trOrder.appendChild(tdActivities);
     trOrder.appendChild(tdValorTotal);
 
