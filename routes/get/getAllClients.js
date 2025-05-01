@@ -1,10 +1,6 @@
 import { Client } from "../../classes/client.js";
 
 async function getAllClients() {
-    const client = {
-        name: name,
-        
-    }
     return fetch('http://localhost:8080/clients')  // Faz a requisição
         .then(async response => {
             const data = await response.json();  // Aguarda a conversão da resposta para JSON
